@@ -3,6 +3,7 @@ import { BackendType } from '../src/OpenSheetMusicDisplay/OSMDOptions';
 import * as jsPDF  from '../node_modules/jspdf/dist/jspdf.es.min';
 import * as svg2pdf from '../node_modules/svg2pdf.js/dist/svg2pdf.umd.min';
 import { TransposeCalculator } from '../src/Plugins/Transpose/TransposeCalculator';
+import "./demo.css";
 
 /*jslint browser:true */
 (function () {
@@ -146,71 +147,71 @@ const imageHeight = 74.60;
 
 const noteToImageMap = {
   // OCTAVA 2
-  "C|1|2": "1do%23reb.png",
-  "D|-1|2": "1do%23reb.png",
+  "C|1|2": "1dososreb.png",
+  "D|-1|2": "1dososreb.png",
   "D|0|2": "1re.png",
-  "D|1|2": "1re%23mib.png",
-  "E|-1|2": "1re%23mib.png",
+  "D|1|2": "1resosmib.png",
+  "E|-1|2": "1resosmib.png",
   "E|0|2": "1mi.png",
   "F|0|2": "1fa.png",
-  "F|1|2": "1fa%23solb.png",
-  "G|-1|2": "1fa%23solb.png",
+  "F|1|2": "1fasossolb.png",
+  "G|-1|2": "1fasossolb.png",
   "G|0|2": "1sol.png",
-  "G|1|2": "1sol%23lab.png",
-  "A|-1|2": "1sol%23lab.png",
+  "G|1|2": "1solsoslab.png",
+  "A|-1|2": "1solsoslab.png",
   "A|0|2": "1la.png",
   "B|0|2": "1si.png",
-  "A|1|2": "1do%23reb.png",
+  "A|1|2": "1dososreb.png",
 
   // OCTAVA 3
   "C|0|3": "2do.png",
-  "C|1|3": "2do%23reb.png",
-  "D|-1|3": "2do%23reb.png",
+  "C|1|3": "2dososreb.png",
+  "D|-1|3": "2dososreb.png",
   "D|0|3": "2re.png",
-  "D|1|3": "2re%23mib.png",
-  "E|-1|3": "2re%23mib.png",
+  "D|1|3": "2resosmib.png",
+  "E|-1|3": "2resosmib.png",
   "E|0|3": "2mi.png",
   "F|0|3": "2fa.png",
-  "F|1|3": "2fa%23solb.png",
-  "G|-1|3": "2fa%23solb.png",
+  "F|1|3": "2fasossolb.png",
+  "G|-1|3": "2fasossolb.png",
   "G|0|3": "2sol.png",
-  "G|1|3": "2sol%23lab.png",
-  "A|-1|3": "2sol%23lab.png",
+  "G|1|3": "2solsoslab.png",
+  "A|-1|3": "2solsoslab.png",
   "A|0|3": "2la.png",
-  "A|1|3": "2la%23sib.png",
-  "B|-1|3": "2la%23sib.png",
+  "A|1|3": "2lasossib.png",
+  "B|-1|3": "2lasossib.png",
   "B|0|3": "2si.png",
 
   // OCTAVA 4
   "C|0|4": "3do.png",
-  "C|1|4": "3do%23reb.png",
-  "D|-1|4": "3do%23reb.png",
+  "C|1|4": "3dososreb.png",
+  "D|-1|4": "3dososreb.png",
   "D|0|4": "3re.png",
-  "D|1|4": "3re%23mib.png",
-  "E|-1|4": "3re%23mib.png",
+  "D|1|4": "3resosmib.png",
+  "E|-1|4": "3resosmib.png",
   "E|0|4": "3mi.png",
   "F|0|4": "3fa.png",
-  "F|1|4": "3fa%23solb.png",
-  "G|-1|4": "3fa%23solb.png",
+  "F|1|4": "3fasossolb.png",
+  "G|-1|4": "3fasossolb.png",
   "G|0|4": "3sol.png",
-  "G|1|4": "3sol%23lab.png",
-  "A|-1|4": "3sol%23lab.png",
+  "G|1|4": "3solsoslab.png",
+  "A|-1|4": "3solsoslab.png",
   "A|0|4": "3la.png",
-  "A|1|4": "3la%23sib.png",
-  "B|-1|4": "3la%23sib.png",
+  "A|1|4": "3lasossib.png",
+  "B|-1|4": "3lasossib.png",
   "B|0|4": "3si.png",
 
   // OCTAVA 5
   "C|0|5": "4do.png",
-  "C|1|5": "4do%23reb.png",
-  "D|-1|5": "4do%23reb.png",
+  "C|1|5": "4dososreb.png",
+  "D|-1|5": "4dososreb.png",
   "D|0|5": "4re.png",
-  "D|1|5": "4re%23mib.png",
-  "E|-1|5": "4re%23mib.png",
+  "D|1|5": "4resosmib.png",
+  "E|-1|5": "4resosmib.png",
   "E|0|5": "4mi.png",
   "F|0|5": "4fa.png",
-  "F|1|5": "4fa%23solb.png",
-  "G|-1|5": "4fa%23solb.png",
+  "F|1|5": "4fasossolb.png",
+  "G|-1|5": "4fasossolb.png",
   "G|0|5": "4sol.png",
 };
 
@@ -492,7 +493,7 @@ function extractNotesFromXMLText(text) {
         if (paramPageHeight && paramPageWidth) {
             pageFormat = `${paramPageWidth}x${paramPageHeight}`
         }
-        var pageBackgroundColor = paramPageBackgroundColor ? "%23" + paramPageBackgroundColor : undefined; // vexflow format, see OSMDOptions. can't use %23 in parameters.
+        var pageBackgroundColor = paramPageBackgroundColor ? "%23" + paramPageBackgroundColor : undefined; // vexflow format, see OSMDOptions. can't use sos in parameters.
         //console.log("demo: osmd pagebgcolor: " + pageBackgroundColor);
         var backendType = (paramBackendType && paramBackendType.toLowerCase) ? paramBackendType : "svg";
 
@@ -826,7 +827,7 @@ function extractNotesFromXMLText(text) {
             autoResize: true,
             backend: backendType,
             //backend: "canvas",
-            //cursorsOptions: [{type: 3, color: "%232bb8cd", alpha: 0.6, follow: true}], // highlight current measure instead of just a small vertical bar over approximate notes
+            //cursorsOptions: [{type: 3, color: "sos2bb8cd", alpha: 0.6, follow: true}], // highlight current measure instead of just a small vertical bar over approximate notes
             disableCursor: false,
             drawingParameters: compactMode ? "compact" : "default", // try compact (instead of default)
             drawPartNames: true, // try false
@@ -847,8 +848,8 @@ function extractNotesFromXMLText(text) {
 
             // coloring options
             coloringEnabled: true,
-            // defaultColorNotehead: "%23CC0055", // try setting a default color. default is black (undefined)
-            // defaultColorStem: "%23BB0099",
+            // defaultColorNotehead: "sosCC0055", // try setting a default color. default is black (undefined)
+            // defaultColorStem: "sosBB0099",
 
             autoBeam: false, // try true, OSMD Function Test AutoBeam sample
             autoBeamOptions: {
