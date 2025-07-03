@@ -56,9 +56,10 @@ module.exports = {
             title: 'OSMD Demo'
         }),
         new CopyPlugin({
-            patterns: [
-                { from: 'demo/resources/digitaciones', to: 'resources/digitaciones' }
-            ]
+        patterns: [
+            { from: 'demo/resources/digitaciones', to: 'resources/digitaciones' },
+            { from: 'demo/demo.css', to: 'demo.css' }
+        ]
         })
     ],
   devServer: {
