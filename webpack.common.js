@@ -1,5 +1,6 @@
 var path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin');
 var webpack = require('webpack')
 
 module.exports = {
@@ -31,6 +32,10 @@ module.exports = {
                 test: /\.glsl$/,
                 type: "asset/source",
                 exclude: /(node_modules|bower_components)/
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
@@ -49,6 +54,11 @@ module.exports = {
             template: 'demo/index.html',
             favicon: 'demo/favicon.ico',
             title: 'OSMD Demo'
+        }),
+        new CopyPlugin({
+            patterns: [
+                { from: 'demo/resources/digitaciones', to: 'resources/digitaciones' }
+            ]
         })
     ],
   devServer: {
