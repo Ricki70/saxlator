@@ -1,6 +1,5 @@
 var path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyPlugin = require('copy-webpack-plugin');
 var webpack = require('webpack')
 
 module.exports = {
@@ -32,10 +31,6 @@ module.exports = {
                 test: /\.glsl$/,
                 type: "asset/source",
                 exclude: /(node_modules|bower_components)/
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
             }
         ]
     },
@@ -54,12 +49,15 @@ module.exports = {
             template: 'demo/index.html',
             favicon: 'demo/favicon.ico',
             title: 'OSMD Demo'
+<<<<<<< HEAD
         }),
         new CopyPlugin({
         patterns: [
             { from: 'demo/resources/digitaciones', to: 'resources/digitaciones' },
             { from: 'demo/demo.css', to: 'demo.css' }
         ]
+=======
+>>>>>>> parent of 98a6580 (Added som features)
         })
     ],
   devServer: {
