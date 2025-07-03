@@ -49,15 +49,6 @@ module.exports = {
             template: 'demo/index.html',
             favicon: 'demo/favicon.ico',
             title: 'OSMD Demo'
-<<<<<<< HEAD
-        }),
-        new CopyPlugin({
-        patterns: [
-            { from: 'demo/resources/digitaciones', to: 'resources/digitaciones' },
-            { from: 'demo/demo.css', to: 'demo.css' }
-        ]
-=======
->>>>>>> parent of 98a6580 (Added som features)
         })
     ],
   devServer: {
